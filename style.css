@@ -1,10 +1,27 @@
 #box {
     border: 1px solid;
-    height: 600px;
+    height: 700px;
     margin: auto;
     width: 500px;
+    color:rgb(41, 255, 205) ;
+    background-color: rgb(223, 225, 139);
     }
 
 #Handleliste {
     text-align: center;
+    color: black;    
+}
+
+#input_felt {
+    margin: auto;
+    border-width: 0px;
+    position: absolute;
+    left: 550px;
+    top: 90px;
+}
+
+#add_button {
+    position: absolute;
+    top: 88.9px;
+    left: 718px;
 }
