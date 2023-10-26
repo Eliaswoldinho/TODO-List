@@ -5,11 +5,19 @@
     width: 500px;
     color:rgb(41, 255, 205) ;
     background-color: rgb(223, 225, 139);
+    margin-top: 40px;
     }
 
 #Handleliste {
     text-align: center;
-    color: black;  
+    color: black;
+    margin-top: 40px;
+
+}
+
+#output{
+    color: black;
+    margin-left: 30px;
 }
 
 #input_felt {
@@ -17,11 +25,58 @@
     border-width: 0px;
     position: absolute;
     left: 550px;
-    top: 90px;
+    top: 132px;
 }
 
 #add_button {
     position: absolute;
-    top: 88.9px;
+    top: 130.9px;
     left: 718px;
+}
+
+#notis_blokk_dings {
+    position: absolute;
+    top: 18px;
+    left: 532px;
+    height: 50px;
+    width: 247px;
+}
+
+#notis_blokk_dings1 {
+    position: absolute;
+    top: 18px;
+    left: 763px;
+    height: 50px;
+    width: 247px;
+}
+
+#TaskList {
+    padding: 0;
+    list-style: none;
+}
+
+.task-item {
+    position: relative;
+    padding: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.task-text {
+    text-decoration: none;
+    flex: 1;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.task-item input[type="checkbox"] {
+    position: relative;
+    z-index: 1;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.task-item:hover .task-text {
+    text-decoration: line-through;
 }
