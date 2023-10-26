@@ -1,5 +1,5 @@
 let tasks = [];
-const MAX_CHARACTER_LIMIT = 25; // Maximal character limit
+const MAX_CHARACTER_LIMIT = 30; // Maximal character limit
 
 function addtext(event) {
     document.getElementById("add_button").addEventListener("click", addtext);
