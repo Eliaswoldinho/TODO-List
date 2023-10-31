@@ -1,14 +1,13 @@
 let tasks = [];
-const MAX_CHARACTER_LIMIT = 30; // Maximal character limit
+const MAX_CHARACTER_LIMIT = 30;
 const MAX_ITEMS = 14;
 
 function addtext(event) {
     event.preventDefault();
 
-    let tasktext = document.getElementById("input_felt").value;
+    let tasktext = document.getElementById("input_felt").value.trim();
 
-    // Check if the input field is empty
-    if (tasktext.trim() === "") {
+    if (tasktext === "") {
         alert("Please write something in the textbox to submit.");
         return;
     }
@@ -23,9 +22,7 @@ function addtext(event) {
         return;
     }
 
-    console.log(tasktext);
-
-    tasks.push(tasktext);
+    tasks.push({ text: tasktext, checked: false });
 
     document.getElementById("input_felt").value = "";
 
@@ -47,13 +44,18 @@ function renderTasks() {
 
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.checked = task.checked;
 
         let textSpan = document.createElement("span");
         textSpan.className = "task-text";
-        textSpan.appendChild(document.createTextNode(task));
+        textSpan.appendChild(document.createTextNode(task.text));
 
         listItem.appendChild(checkbox);
         listItem.appendChild(textSpan);
+
+        checkbox.addEventListener("change", function(event) {
+            tasks[index].checked = event.target.checked;
+        });
 
         textSpan.addEventListener("click", function() {
             removeTask(index);
@@ -68,3 +70,4 @@ document.getElementById("input_felt").addEventListener("keypress", function(even
         addtext(event);
     }
 });
+renderTasks();
