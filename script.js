@@ -7,6 +7,12 @@ function addtext(event) {
 
     let tasktext = document.getElementById("input_felt").value;
 
+    // Check if the input field is empty
+    if (tasktext.trim() === "") {
+        alert("Please write something in the textbox to submit.");
+        return;
+    }
+
     if (tasktext.length > MAX_CHARACTER_LIMIT) {
         alert("Max characters reached " + MAX_CHARACTER_LIMIT + " characters.");
         return;
