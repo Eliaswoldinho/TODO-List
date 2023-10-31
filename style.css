@@ -80,3 +80,9 @@
 .task-item:hover .task-text {
     text-decoration: line-through;
 }
+
+#delete_all_button {
+    position: absolute;
+    left: 780px;
+    top: 131px;
+}

@@ -1,6 +1,12 @@
 let tasks = [];
-const MAX_CHARACTER_LIMIT = 30;
+const MAX_CHARACTER_LIMIT = 30; //This 
 const MAX_ITEMS = 14;
+
+//This delete all the items in the list
+function deleteAllTasks() {
+    tasks = [];
+    renderTasks();
+}
 
 function addtext(event) {
     event.preventDefault();
@@ -12,6 +18,7 @@ function addtext(event) {
         return;
     }
 
+    //sends a message that you have reached the mac character limit
     if (tasktext.length > MAX_CHARACTER_LIMIT) {
         alert("Max characters reached " + MAX_CHARACTER_LIMIT + " characters.");
         return;
