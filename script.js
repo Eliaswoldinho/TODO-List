@@ -1,16 +1,19 @@
 let tasks = [];
 const MAX_CHARACTER_LIMIT = 30; // Maximal character limit
+const MAX_ITEMS = 14;
 
 function addtext(event) {
-    document.getElementById("add_button").addEventListener("click", addtext);
-
     event.preventDefault();
-    
+
     let tasktext = document.getElementById("input_felt").value;
 
-    // Max characters reached alert
     if (tasktext.length > MAX_CHARACTER_LIMIT) {
         alert("Max characters reached " + MAX_CHARACTER_LIMIT + " characters.");
+        return;
+    }
+
+    if (tasks.length >= MAX_ITEMS) {
+        alert("Shopping list is full. You cannot add more items.");
         return;
     }
 
@@ -23,6 +26,10 @@ function addtext(event) {
     renderTasks();
 }
 
+function removeTask(index) {
+    tasks.splice(index, 1);
+    renderTasks();
+}
 
 function renderTasks() {
     let outputElement = document.getElementById("TaskList");
@@ -42,12 +49,9 @@ function renderTasks() {
         listItem.appendChild(checkbox);
         listItem.appendChild(textSpan);
 
-        textSpan.addEventListener("click", function(clickedIndex) {
-            return function() {
-                tasks.splice(clickedIndex, 1);
-                renderTasks();
-            };
-        }(index));
+        textSpan.addEventListener("click", function() {
+            removeTask(index);
+        });
 
         outputElement.appendChild(listItem);
     });
